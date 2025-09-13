@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@use "bootstrap-icons";
+
+:root {
+    color-scheme: light dark;
+
+    --kennz-light-bg: #F7F9FC;
+    --kennz-light-surface: #FFFFFF;
+    --kennz-light-text: #0F172A;
+    --kennz-light-muted: #667085;
+    --kennz-light-border: #E4E7EC;
+    --kennz-light-primary: #003399;
+    --kennz-light-primary-hover: #1A4AA6;
+    --kennz-light-primary-subtle: #E6EEF9;
+    --kennz-light-on-primary: #FFFFFF;
+    --kennz-light-accent: #FFCC00;
+    --kennz-light-on-accent: #111827;
+    --kennz-light-success: #2E7D32;
+    --kennz-light-warning: #ED6C02;
+    --kennz-light-error: #D32F2F;
+    --kennz-light-info: #0288D1;
+
+    --kennz-dark-bg: #0B1220;
+    --kennz-dark-surface: #111827;
+    --kennz-dark-text: #E6EAF3;
+    --kennz-dark-muted: #9AA4B2;
+    --kennz-dark-border: #1F2937;
+    --kennz-dark-primary: #3C6FFF;
+    --kennz-dark-primary-hover: #6B8FFF;
+    --kennz-dark-primary-subtle: #0E1B33;
+    --kennz-dark-on-primary: #0B1220;
+    --kennz-dark-accent: #E2B100;
+    --kennz-dark-on-accent: #111827;
+    --kennz-dark-success: #2E7D32;
+    --kennz-dark-warning: #ED6C02;
+    --kennz-dark-error: #D32F2F;
+    --kennz-dark-info: #0288D1;
+
+    --bg: light-dark(var(--kennz-light-bg), var(--kennz-dark-bg));
+    --surface: light-dark(var(--kennz-light-surface), var(--kennz-dark-surface));
+    --text: light-dark(var(--kennz-light-text), var(--kennz-dark-text));
+    --muted: light-dark(var(--kennz-light-muted), var(--kennz-dark-muted));
+    --border: light-dark(var(--kennz-light-border), var(--kennz-dark-border));
+    --primary: light-dark(var(--kennz-light-primary), var(--kennz-dark-primary));
+    --primary-hov: light-dark(var(--kennz-light-primary-hover), var(--kennz-dark-primary-hover));
+    --primary-sub: light-dark(var(--kennz-light-primary-subtle), var(--kennz-dark-primary-subtle));
+    --on-primary: light-dark(var(--kennz-light-on-primary), var(--kennz-dark-on-primary));
+    --accent: light-dark(var(--kennz-light-accent), var(--kennz-dark-accent));
+    --on-accent: light-dark(var(--kennz-light-on-accent), var(--kennz-dark-on-accent));
+    --success: light-dark(var(--kennz-light-success), var(--kennz-dark-success));
+    --warning: light-dark(var(--kennz-light-warning), var(--kennz-dark-warning));
+    --error: light-dark(var(--kennz-light-error), var(--kennz-dark-error));
+    --info: light-dark(var(--kennz-light-info), var(--kennz-dark-info));
+
+    --spacer: .125rem;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+}
+
+app-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: var(--bg);
+}
+
+button.btn {
+    padding: calc(var(--spacer) * 2);
+    background-color: var(--primary);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-accent {
+    color: var(--accent);
+}

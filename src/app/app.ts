@@ -1,4 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DataService } from './svcs/data';
+import { User } from './types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +11,19 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('my-kennzeichen');
+
+  user?: User;
+
+  constructor(
+    private ds: DataService,
+    private router: Router,
+  ) {
+    this.ds.user.pipe(takeUntilDestroyed()).subscribe((u) => {
+      this.user = u;
+      if (u === undefined && router.url !== '/login') {
+        router.navigate(['/login']);
+      }
+    });
+  }
+
 }
